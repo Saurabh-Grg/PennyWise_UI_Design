@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pennywise - Search and Filter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+    .search-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    header {
+      background-color: #007bff;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      border-radius: 10px 10px 0 0;
+    }
+    .filter-section {
+      margin-top: 20px;
+    }
+    .filter-section h2 {
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      font-weight: bold;
+      color: #333;
+    }
+    select, input[type="text"], input[type="date"] {
+      margin-top: 5px;
+      padding: 8px;
+      width: 100%;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="search-container">
+    <header>
+      <h1>Search and Filter Transactions</h1>
+    </header>
+    <div class="filter-section">
+      <h2>Filter by Criteria</h2>
+      <div class="form-group">
+        <label for="transaction-type">Transaction Type</label>
+        <select id="transaction-type">
+          <option value="all">All</option>
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+          <option value="debt">Debt</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="date-range">Date Range</label>
+        <input type="date" id="date-range">
+      </div>
+      <div class="form-group">
+        <label for="search">Search by Title</label>
+        <input type="text" id="search" placeholder="Search transactions...">
+      </div>
+      <button onclick="window.location.href='/search-results'">Apply Filters</button>
+    </div>
+  </div>
+</body>
+</html>

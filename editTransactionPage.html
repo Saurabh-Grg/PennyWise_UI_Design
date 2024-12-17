@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pennywise - Add/Edit Transaction</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="transaction-form">
+    <h1>Add/Edit Transaction</h1>
+    <form action="/save-transaction" method="POST">
+      <label>Transaction Type</label>
+      <select name="transaction-type">
+        <option value="credit">Credit</option>
+        <option value="debit">Debit</option>
+        <option value="debt">Debt</option>
+      </select>
+      <label>Amount</label>
+      <input type="number" name="amount" required>
+      <label>Source/Description</label>
+      <input type="text" name="source" required>
+      <label>Tags</label>
+      <select multiple name="tags">
+        <option value="rent">Rent</option>
+        <option value="groceries">Groceries</option>
+        <option value="salary">Salary</option>
+      </select>
+      <label>Notes</label>
+      <textarea name="notes"></textarea>
+      <button type="submit">Save Transaction</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pennywise - Transactions</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Reset some basic styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f7fc;
+  color: #333;
+}
+
+header {
+  background-color: #004d99;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+header .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+header .profile {
+  display: flex;
+  align-items: center;
+}
+
+header .profile i {
+  margin-left: 10px;
+  font-size: 24px;
+}
+
+.main-content {
+  padding: 20px;
+}
+
+/* Transaction Filter Section */
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.filters input,
+.filters select {
+  padding: 8px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.apply-filters {
+  padding: 8px 16px;
+  background-color: #004d99;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Transaction List */
+.transaction-list table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.transaction-list th,
+.transaction-list td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.transaction-list th {
+  background-color: #f4f7fc;
+}
+
+.transaction-list button {
+  padding: 5px 10px;
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.transaction-list button:hover {
+  background-color: #e68900;
+}
+
+/* Add Transaction Button */
+.add-btn {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto;
+}
+
+.add-btn:hover {
+  background-color: #218838;
+}
+
+/* Add Form Section */
+.add-form {
+  display: none;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-form .tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.add-form .tab-button {
+  padding: 10px 20px;
+  background-color: #ddd;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.add-form .tab-button:hover {
+  background-color: #ccc;
+}
+
+.add-form .form-content {
+  display: block;
+}
+
+.add-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-form input,
+.add-form select,
+.add-form textarea {
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.add-form button {
+  padding: 10px 20px;
+  background-color: #004d99;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.add-form .cancel-btn {
+  background-color: #999;
+  margin-top: 10px;
+}
+
+.add-form .cancel-btn:hover {
+  background-color: #888;
+}
+
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">Pennywise</div>
+    <div class="profile">
+      <span class="user-name">User</span>
+      <i class="fas fa-user-circle"></i>
+    </div>
+  </header>
+
+  <section class="main-content">
+    <!-- Transaction Filters -->
+    <div class="filters">
+      <input type="text" placeholder="Search Transactions" class="search-bar">
+      <select class="filter">
+        <option>All Categories</option>
+        <option>Income</option>
+        <option>Expense</option>
+        <option>Debt</option>
+      </select>
+      <input type="date" class="filter">
+      <button class="apply-filters">Apply Filters</button>
+    </div>
+
+    <!-- Transaction List -->
+    <div class="transaction-list">
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Category</th>
+            <th>Tags</th>
+            <th>Notes</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Salary</td>
+            <td>Credit</td>
+            <td>Rs 2000</td>
+            <td>2024-12-01</td>
+            <td>Salary</td>
+            <td>Monthly</td>
+            <td>-</td>
+            <td><button>Edit</button><button>Delete</button></td>
+          </tr>
+          <tr>
+            <td>Groceries</td>
+            <td>Debit</td>
+            <td>Rs 300</td>
+            <td>2024-12-05</td>
+            <td>Food</td>
+            <td>Weekly</td>
+            <td>Shopping</td>
+            <td><button>Edit</button><button>Delete</button></td>
+          </tr>
+          <!-- More rows as needed -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Add Transaction Button -->
+    <button class="add-btn" id="add-transaction-btn">+ Add Transaction</button>
+
+    <!-- Add Transaction / Add Debt Form -->
+    <div class="add-form" id="add-form">
+      <div class="tabs">
+        <button class="tab-button" id="transaction-tab">Transaction</button>
+        <button class="tab-button" id="debt-tab">Debt</button>
+      </div>
+
+      <!-- Transaction Form -->
+      <div class="form-content" id="transaction-form">
+        <h3>Add Transaction</h3>
+        <form>
+          <input type="text" placeholder="Title" required>
+          <input type="number" placeholder="Amount" required>
+          <select required>
+            <option>Credit</option>
+            <option>Debit</option>
+          </select>
+          <select required>
+            <option>Salary</option>
+            <option>Food</option>
+            <option>Entertainment</option>
+            <option>Rent</option>
+          </select>
+          <input type="date" required>
+          <input type="text" placeholder="Tags">
+          <textarea placeholder="Notes"></textarea>
+          <label for="recurring">Recurring</label>
+          <input type="checkbox" id="recurring">
+          <button type="submit">Save</button>
+          <button type="button" class="cancel-btn" id="cancel-btn">Cancel</button>
+        </form>
+      </div>
+
+      <!-- Debt Form -->
+      <div class="form-content" id="debt-form" style="display: none;">
+        <h3>Add Debt</h3>
+        <form>
+          <input type="text" placeholder="Debt Title" required>
+          <input type="number" placeholder="Amount" required>
+          <input type="date" required>
+          <input type="number" placeholder="Interest Rate (%)">
+          <textarea placeholder="Notes"></textarea>
+          <button type="submit">Save Debt</button>
+          <button type="button" class="cancel-btn" id="cancel-btn-debt">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('add-transaction-btn').addEventListener('click', function () {
+  document.getElementById('add-form').style.display = 'block';
+  document.getElementById('transaction-form').style.display = 'block';
+  document.getElementById('debt-form').style.display = 'none';
+});
+
+document.getElementById('transaction-tab').addEventListener('click', function () {
+  document.getElementById('transaction-form').style.display = 'block';
+  document.getElementById('debt-form').style.display = 'none';
+});
+
+document.getElementById('debt-tab').addEventListener('click', function () {
+  document.getElementById('debt-form').style.display = 'block';
+  document.getElementById('transaction-form').style.display = 'none';
+});
+
+document.getElementById('cancel-btn').addEventListener('click', function () {
+  document.getElementById('add-form').style.display = 'none';
+});
+
+document.getElementById('cancel-btn-debt').addEventListener('click', function () {
+  document.getElementById('add-form').style.display = 'none';
+});
+
+  </script>
+</body>
+</html>

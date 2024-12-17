@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pennywise - First-time Setup & Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #333;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      background-color: white;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .container:hover {
+      transform: translateY(-10px);
+      opacity: 0.9;
+    }
+
+    h2 {
+      text-align: center;
+      color: #4CAF50;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      text-align: center;
+      color: #666;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    select, input {
+      padding: 12px 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+    }
+
+    select:focus, input:focus {
+      border-color: #4CAF50;
+      outline: none;
+    }
+
+    select option:first-child {
+      color: #888;
+    }
+
+    button {
+      padding: 14px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .links {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .links a {
+      color: #007bff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 480px) {
+      .container {
+        padding: 30px;
+        width: 90%;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      select, input {
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      button {
+        padding: 12px;
+        font-size: 14px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Welcome to Pennywise</h2>
+    <p>Your personal finance tracker</p>
+    <form id="login-form">
+      <!-- Currency Selection (First-time Setup) -->
+      <select name="currency" id="currency" required>
+        <option value="" disabled selected>Choose yourw currency</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="INR">INR</option>
+      </select>
+
+      <!-- Login Form Fields -->
+      <input type="text" placeholder="Username" name="username" id="username" required>
+      <input type="password" placeholder="Password" name="password" id="password" required>
+      
+      <button type="submit">Login</button>
+    </form>
+
+    <div class="links">
+      <a href="#">Sign Up</a> | <a href="#">Forgot Password?</a>
+    </div>
+  </div>
+
+  <script>
+    // Handle login form submission
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      // Get form values
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const currency = document.getElementById('currency').value;
+
+      // Simulate login verification (for demo purposes)
+      if (username && password) {
+        // Simulate saving the selected currency (for demo purposes)
+        console.log('Currency selected:', currency);
+
+        // Redirect to the dashboard page after successful login
+        window.location.href = 'dashboard.html';  // Redirect to the dashboard page
+      } else {
+        alert('Please enter valid credentials.');
+      }
+    });
+  </script>
+</body>
+</html>

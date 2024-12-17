@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Startup Page - Pennywise</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      /* background: linear-gradient(to bottom right, #4CAF50, #45a049); */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 30px 40px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      border-radius: 12px;
+      width: 100%;
+      max-width: 450px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #4CAF50;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    p.intro {
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #444;
+      font-size: 14px;
+    }
+
+    input, select {
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+      box-sizing: border-box;
+    }
+
+    input:focus, select:focus {
+      border-color: #fffb00;
+      outline: none;
+      box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+      transform: translateY(-1px);
+    }
+
+    .form-note {
+      text-align: center;
+      color: #888;
+      font-size: 13px;
+      margin-top: 15px;
+    }
+
+    .help {
+      margin: 10px 0;
+      font-size: 13px;
+      color: #555;
+    }
+
+    .help a {
+      color: #4CAF50;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .help a:hover {
+      text-decoration: underline;
+    }
+
+    .tooltip {
+      position: relative;
+      display: inline-block;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 200px;
+      background-color: #4CAF50;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 10px;
+      position: absolute;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 12px;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Welcome to Pennywise</h2>
+    <p class="intro">Your smart solution for tracking personal expenses.</p>
+
+    <form id="startup-form">
+      <!-- Username Field -->
+      <label for="username">Username</label>
+      <input 
+        type="text" 
+        id="username" 
+        name="username" 
+        placeholder="This username will identify you within the app." 
+        required
+        aria-label="Enter your preferred username">
+
+      <!-- Password Field -->
+      <label for="password">Password</label>
+      <input 
+        type="password" 
+        id="password" 
+        name="password" 
+        placeholder="Must be at least 8 characters long." 
+        required
+        aria-label="Enter a secure password">
+      <div class="tooltip">
+        <span class="tooltiptext">Include a mix of letters, numbers, and symbols for better security.</span>
+      </div>
+
+      <!-- Currency Selection -->
+      <label for="currency">Preferred Currency</label>
+      <select id="currency" name="currency" required aria-label="Select your preferred currency">
+        <option value="" disabled selected>Choose your preferred currency</option>
+        <option value="USD">NRS - Nepalese Rupee</option>
+        <option value="USD">USD - US Dollar</option>
+        <option value="EUR">EUR - Euro</option>
+        <option value="GBP">GBP - British Pound</option>
+        <option value="INR">INR - Indian Rupee</option>
+        <option value="AUD">AUD - Australian Dollar</option>
+        <option value="JPY">JPY - Japanese Yen</option>
+        <option value="CAD">CAD - Canadian Dollar</option>
+      </select>
+
+      <!-- Submit Button -->
+      <button type="submit">Save & Get Started</button>
+    </form>
+
+    <p class="form-note">By signing up, you agree to our <a href="#">Terms & Conditions</a>.</p>
+  </div>
+
+  <script>
+    document.getElementById('startup-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const currency = document.getElementById('currency').value;
+
+      if (username && password && currency) {
+        // Simulate saving user preferences (this can be replaced with actual logic)
+        console.log('Username:', username);
+        console.log('Password:', password);
+        console.log('Preferred Currency:', currency);
+
+        // Redirect to the Dashboard (replace with your actual navigation logic)
+        alert('Preferences saved successfully!');
+        window.location.href = 'dashboard.html';
+      } else {
+        alert('Please fill out all fields.');
+      }
+    });
+  </script>
+</body>
+</html>

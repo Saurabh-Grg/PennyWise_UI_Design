@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pennywise - Debt Reminder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+    .debt-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    header {
+      background-color: #007bff;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      border-radius: 10px 10px 0 0;
+    }
+    .debt-section {
+      margin-top: 20px;
+    }
+    .debt-section h2 {
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="debt-container">
+    <header>
+      <h1>Debt Reminders</h1>
+    </header>
+    <div class="debt-section">
+      <h2>Your Pending Debts</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Debt Source</th>
+            <th>Amount</th>
+            <th>Due Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bank Loan</td>
+            <td>$500</td>
+            <td>2024-12-30</td>
+            <td>Pending</td>
+          </tr>
+        </tbody>
+      </table>
+      <button onclick="window.location.href='/add-debt'">Add New Debt</button>
+    </div>
+  </div>
+</body>
+</html>

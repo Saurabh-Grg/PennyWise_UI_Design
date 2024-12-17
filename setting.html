@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>Settings - Pennywise</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f1f8f1;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      color: #4CAF50;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .section p {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: 0.4s;
+    }
+
+    input:checked + .slider {
+      background-color: #4CAF50;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    select, input[type="radio"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <h1>Settings</h1>
+  </div>
+
+  <!-- Currency Settings Section -->
+  <div class="section">
+    <h2>Currency Settings</h2>
+    <p>Select your preferred currency:</p>
+    <select id="currency-settings">
+      <option value="USD">USD - US Dollar</option>
+      <option value="INR">INR - Indian Rupee</option>
+      <option value="EUR">EUR - Euro</option>
+      <option value="GBP">GBP - British Pound</option>
+    </select>
+  </div>
+
+  <!-- Notification Preferences Section -->
+  <div class="section">
+    <h2>Notification Preferences</h2>
+    <p>Enable reminders for due debts:</p>
+    <label class="toggle-switch">
+      <input type="checkbox" id="notification-toggle">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <!-- App Themes Section -->
+  <div class="section">
+    <h2>App Themes</h2>
+    <p>Choose your preferred theme:</p>
+    <label>
+      <input type="radio" name="theme" value="light" checked> Light Mode
+    </label>
+    <br>
+    <label>
+      <input type="radio" name="theme" value="dark"> Dark Mode
+    </label>
+  </div>
+
+  <!-- Export Data Section -->
+  <div class="section">
+    <h2>Export Data</h2>
+    <p>Select the format to export your data:</p>
+    <button class="btn" onclick="exportData('csv')">Export as CSV</button>
+    <button class="btn" onclick="exportData('excel')">Export as Excel</button>
+    <button class="btn" onclick="exportData('json')">Export as JSON</button>
+  </div>
+
+  <script>
+    // Example function for exporting data (stubbed out for now)
+    function exportData(format) {
+      alert(`Exporting data as ${format}`);
+      // You can add logic here to export actual data in the selected format
+    }
+
+    // Event listeners for changes in the currency or theme settings
+    document.getElementById('currency-settings').addEventListener('change', function() {
+      console.log("Currency changed to: " + this.value);
+    });
+
+    document.querySelectorAll('input[name="theme"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        const selectedTheme = this.value;
+        if (selectedTheme === "dark") {
+          document.body.style.backgroundColor = "#333";
+          document.body.style.color = "#fff";
+        } else {
+          document.body.style.backgroundColor = "#f1f8f1";
+          document.body.style.color = "#333";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

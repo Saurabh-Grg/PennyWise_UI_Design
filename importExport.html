@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pennywise - Import/Export</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+    .import-export-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    header {
+      background-color: #007bff;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      border-radius: 10px 10px 0 0;
+    }
+    .import-export-section {
+      margin-top: 20px;
+    }
+    .import-export-section h2 {
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      font-weight: bold;
+      color: #333;
+    }
+    select, input[type="file"] {
+      margin-top: 5px;
+      padding: 8px;
+      width: 100%;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="import-export-container">
+    <header>
+      <h1>Import/Export Transactions</h1>
+    </header>
+    <div class="import-export-section">
+      <h2>Import Transactions</h2>
+      <div class="form-group">
+        <label for="import-file">Choose File</label>
+        <input type="file" id="import-file" accept=".csv, .json, .xlsx">
+      </div>
+      <button onclick="window.location.href='/import'">Import Data</button>
+    </div>
+    <div class="import-export-section">
+      <h2>Export Transactions</h2>
+      <div class="form-group">
+        <label for="export-format">Choose Format</label>
+        <select id="export-format">
+          <option value="csv">CSV</option>
+          <option value="json">JSON</option>
+          <option value="excel">Excel</option>
+        </select>
+      </div>
+      <button onclick="window.location.href='/export'">Export Data</button>
+    </div>
+  </div>
+</body>
+</html>
